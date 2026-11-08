@@ -24,7 +24,7 @@ html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
 body {
   margin: 0; background: var(--bg); color: var(--ink);
   font-family: var(--font); font-weight: 600; font-size: 17px; line-height: 1.55;
-  -webkit-font-smoothing: antialiased;
+  -webkit-font-smoothing: antialiased; overflow-x: clip;
 }
 a { color: var(--acc-text); text-underline-offset: 3px; }
 a:hover { text-decoration-thickness: 2px; }
@@ -48,8 +48,6 @@ img, svg { max-width: 100%; display: block; }
 .btn:hover { transform: translateY(-2px); }
 .btn:active { transform: scale(.96); }
 .btn.ghost { background: var(--card); color: var(--ink); box-shadow: var(--shadow); }
-.btn[aria-disabled="true"] { cursor: default; opacity: .92; }
-.btn[aria-disabled="true"]:hover { transform: none; }
 .pill { display: inline-block; padding: 6px 14px; border-radius: 999px; background: var(--acc-soft); color: var(--acc-text); font-weight: 900; font-size: 14px; letter-spacing: .2px; }
 
 /* ——— hero ——— */
@@ -79,6 +77,7 @@ h2 { font-size: clamp(30px, 4.4vw, 46px); line-height: 1.08; letter-spacing: -1.
 .grid { display: grid; gap: 16px; }
 .g3 { grid-template-columns: repeat(3, 1fr); }
 .g2 { grid-template-columns: repeat(2, 1fr); }
+.g4 { grid-template-columns: repeat(4, 1fr); }
 .card { background: var(--card); border-radius: var(--r); box-shadow: var(--shadow); padding: 26px; border: 1px solid var(--line); }
 .card h3 { margin: 14px 0 6px; font-size: 21px; letter-spacing: -.3px; font-weight: 900; line-height: 1.2; }
 .card p { margin: 0; color: var(--ink2); font-weight: 600; font-size: 16px; }
@@ -173,14 +172,19 @@ footer small { display: block; margin-top: 8px; font-size: 13px; max-width: 46em
   .stage { min-height: 320px; order: -1; }
   .m-lg { width: 220px; height: 220px; }
   .m-sm { width: 120px; height: 120px; }
-  .g3 { grid-template-columns: 1fr 1fr; }
+  .g3, .g4 { grid-template-columns: 1fr 1fr; }
   .steps { grid-template-columns: 1fr 1fr; }
   .band { grid-template-columns: 1fr; padding: 28px; }
 }
 @media (max-width: 560px) {
   body { font-size: 16px; }
   section { padding: 52px 0; }
-  .g3, .g2, .steps { grid-template-columns: 1fr; }
+  .g3, .g2, .steps, .g4.feats { grid-template-columns: 1fr; }
+  .g4.kinds { gap: 12px; }
+  .kinds .card { padding: 16px 10px 18px; }
+  .kinds .m { width: 110px; height: 110px; }
+  .kinds .card h3 { font-size: 20px; }
+  .kinds .card p { font-size: 14px; }
   .nav .wrap { justify-content: center; }
   .nav ul a { padding: 6px 11px; font-size: 14px; }
   .hero { padding-top: 24px; }
