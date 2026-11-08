@@ -173,6 +173,11 @@ footer small { display: block; margin-top: 8px; font-size: 13px; max-width: 46em
   .m-lg { width: 220px; height: 220px; }
   .m-sm { width: 120px; height: 120px; }
   .g3, .g4 { grid-template-columns: 1fr 1fr; }
+  /* виды: тот же ряд карточек, но листается внутри блока, страница не уезжает вбок */
+  .g4.kinds { display: flex; gap: 14px; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch;
+    margin-inline: -20px; padding: 6px 20px 22px; scrollbar-width: none; }
+  .g4.kinds::-webkit-scrollbar { display: none; }
+  .g4.kinds .card { flex: 0 0 min(220px, 62vw); scroll-snap-align: center; }
   .steps { grid-template-columns: 1fr 1fr; }
   .band { grid-template-columns: 1fr; padding: 28px; }
 }
@@ -180,11 +185,6 @@ footer small { display: block; margin-top: 8px; font-size: 13px; max-width: 46em
   body { font-size: 16px; }
   section { padding: 52px 0; }
   .g3, .g2, .steps, .g4.feats { grid-template-columns: 1fr; }
-  .g4.kinds { gap: 12px; }
-  .kinds .card { padding: 16px 10px 18px; }
-  .kinds .m { width: 110px; height: 110px; }
-  .kinds .card h3 { font-size: 20px; }
-  .kinds .card p { font-size: 14px; }
   .nav .wrap { justify-content: center; }
   .nav ul a { padding: 6px 11px; font-size: 14px; }
   .hero { padding-top: 24px; }
